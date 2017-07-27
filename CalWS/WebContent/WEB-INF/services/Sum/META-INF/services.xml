@@ -1,0 +1,11 @@
+<service name="Sum" >
+	<Description>
+		This service will take 2 ints and add them together
+	</Description>
+	 <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+        <messageReceiver  mep="http://www.w3.org/ns/wsdl/in-out"  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+	<parameter name="ServiceClass" locked="false">controller.Sum</parameter>
+</service>
+
