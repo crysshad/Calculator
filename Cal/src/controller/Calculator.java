@@ -3,7 +3,7 @@ package controller;
 public class Calculator {
 
 	public double Addition(double number1, double number2) {
-
+		
 		return number1 + number2;
 
 	}
