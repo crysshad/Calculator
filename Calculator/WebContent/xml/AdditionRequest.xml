@@ -1,0 +1,1 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://controller"><soapenv:Header/><soapenv:Body><con:Addition><con:number1>4</con:number1><con:number2>9</con:number2></con:Addition></soapenv:Body></soapenv:Envelope>

@@ -7,10 +7,10 @@ public class Calculator {
 		return number1 + number2;
 
 	}
-	
+	/*
 	public double subtraction(double number1, double number2) {
 
-		return number1 - number2;
+		return  number1 - number2;
 
 	}
 	
@@ -24,5 +24,5 @@ public class Calculator {
 
 		return number1 / number2;
 
-	}
+	}*/
 }
