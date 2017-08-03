@@ -2,7 +2,7 @@ var CalculatorApp = angular.module('CalculatorApp', []);
 
 
 
-CalculatorApp.factory('addition', function($http) {
+/*CalculatorApp.factory('addition', function($http) {
 	var factory = [];
 
 	factory.additionResult = function() {
@@ -11,11 +11,19 @@ CalculatorApp.factory('addition', function($http) {
 
 	return factory;
 });
+*/
 
+CalculatorApp.factory('addition', function($http) {
+	var factory = [];
 
+	factory.additionResult = function() {
+		
+		var URL = "http://localhost:8080/CalculatorWS/services/Calculator/Addition?number1=1&number2=4";
+		return $http.get(URL);
+	}
 
-
-
+	return factory;
+});
 
 
 CalculatorApp.controller('Cal', function($scope, $http, addition) {
@@ -32,7 +40,7 @@ CalculatorApp.controller('Cal', function($scope, $http, addition) {
       }*/
 
 	
-	function calculator() {
+/*	function calculator() {
 		var x2js = new X2JS();
 	
 		
@@ -40,6 +48,19 @@ CalculatorApp.controller('Cal', function($scope, $http, addition) {
 			ar = x2js.xml_str2json(response);
 			console.log(ar.Envelope.Body.AdditionResponse.return.__text);
 			$scope.AResult = ar.Envelope.Body.AdditionResponse.return.__text;
+		});
+	}
+	*/
+	
+	
+	function calculator() {
+		var x2js = new X2JS();
+	
+		
+		addition.additionResult().success(function(response) {
+			ar = x2js.xml_str2json(response);
+			console.log(ar.AdditionResponse.return.__text);
+			$scope.AResult = ar.AdditionResponse.return.__text;
 		});
 	}
 

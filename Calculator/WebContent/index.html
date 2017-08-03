@@ -17,43 +17,6 @@
 <script src="js/soapclient.js"></script>
 <script src="js/angular.soap.js"></script>
 
-<script>
-	function soapRequest() {
-		var str = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://controller"><soapenv:Header/><soapenv:Body><con:Addition><con:number1>2</con:number1><con:number2>3</con:number2></con:Addition></soapenv:Body></soapenv:Envelope>';
-
-		function createCORSRequest(method, url) {
-			var xhr = new XMLHttpRequest();
-			if ("withCredentials" in xhr) {
-				xhr.open(method, url, false);
-			} else if (typeof XDomainRequest != "undefined") {
-				alert
-				xhr = new XDomainRequest();
-				xhr.open(method, url);
-			} else {
-				console.log("CORS not supported");
-				alert("CORS not supported");
-				xhr = null;
-			}
-			return xhr;
-		}
-
-		var xhr = createCORSRequest("POST",
-				"http://localhost:8080/CalculatorWS/services/Calculator?wsdl");
-		if (!xhr) {
-			console.log("XHR issue");
-			return;
-		}
-		xhr.onload = function() {
-			var results = xhr.responseText;
-			console.log(results);
-		}
-		xhr.setRequestHeader('Content-Type', 'text/xml');
-		xhr.send(str);
-
-	}
-</script>
-
-
 </head>
 <body data-ng-app="CalculatorApp" data-ng-controller="Cal">
 
@@ -82,9 +45,8 @@
 
 	<p>{{AResult}}</p>
 
-	<p>{{response}}</p>
 
-<input type="button" value="SOAP Request" onclick="soapRequest();" />
+
 
 
 
