@@ -18,7 +18,9 @@ CalculatorApp.factory('addition', function($http) {
 
 	factory.additionResult = function() {
 		
-		var URL = "http://localhost:8080/CalculatorWS/services/Calculator/Addition?number1=1&number2=4";
+		var number1 = 6
+		var number2 = 4
+		var URL = "http://localhost:8080/CalculatorWS/services/Calculator/Addition?number1="+number1+"&number2="+number2;
 		return $http.get(URL);
 	}
 
